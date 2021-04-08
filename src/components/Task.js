@@ -19,8 +19,8 @@ class Task extends Component {
             {task.description} - 
             {task.done} 
             {task.id}
-        <input type="checkbox"/> {/* imput va a servir pra cambiar el estado de .done de tru a false */}
-       <button style={btnDelete}> {/*servira para eliminar cada tarea*/}
+        <input type="checkbox" onChange={this.props.checkDone.bind(this, task.id)}/> {/* imput va a servir pra cambiar el estado de .done de tru a false */}
+       <button style={btnDelete} onClick={this.props.deleteTask.bind(this, task.id)}> {/*servira para eliminar cada tarea*/}
            x
        </button>
         </p>
