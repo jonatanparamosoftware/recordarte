@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, link} from 'react-router-dom'; //enrutador para el navegador
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'; //enrutador para el navegador
 import './App.css';
 import tasks from "./sample/task.json";
 
@@ -48,9 +48,9 @@ class App extends Component {
     return <div>
      <Router> {/* router permite definir una especie de url dentro de del navegador, ejem: cuando visiten el / va a pintar el primer router, y cuando visiten /posts, va a pintar el componente llamad posts  */}
         
-        <link to="/">Home</link>
+        <Link to="/">Home</Link>
         <br/>
-        <link to="/posts">Posts</link>
+        <Link to="/posts">Posts</Link>
         
         <Route exact path="/" render={()=>{
                return <div>
