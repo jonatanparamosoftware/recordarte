@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom'; //enrutador para el navegador
 import './App.css';
 import tasks from "./sample/task.json";
 
@@ -43,14 +44,23 @@ class App extends Component {
   render(){
     //las {} permiten interpretar codigo de javascript
     //le estoy pasando todas las tareas a este complemento
+    
     return <div>
-      <TaskForm addTask={this.addTask}/> {/*se pone addtask para que enlace con taskform */}
-      <Tasks 
-        tasks={this.state.tasks} 
-        deleteTask={this.deleteTask} 
-        checkDone= { this.checkDone}
-      />
-      <Posts/> 
+     <Router> {/* router permite definir una especie de url dentro de del navegador, ejem: cuando visiten el / va a pintar el primer router, y cuando visiten /posts, va a pintar el componente llamad posts  */}
+        <Route  Path="/" render={()=>{
+               return <div>
+                  <TaskForm addTask={this.addTask}/> {/*se pone addtask para que enlace con taskform */}
+                <Tasks 
+                  tasks={this.state.tasks} 
+                  deleteTask={this.deleteTask} 
+                  checkDone= { this.checkDone}
+                />
+                </div>
+            }}>
+
+        </Route>
+        <Route path= "/posts" component={Posts}/>
+     </Router> 
     </div>
   }
 }
