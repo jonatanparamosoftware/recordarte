@@ -16,7 +16,7 @@ class App extends Component {
     const newTask = { //esta es la parte que permite la creacion de una nueva tarea
       title: title,
       description: description,
-      id: 45
+      id: this.state.tasks.length //como id vas a utilizar desde las tareas su longitud, osea para que la nueva tarea que se crea tenga el numero de la tarea que sigue enpor ejemplo, la tarea 3
     }
     this.setState({ //estamos modificando el estado de task con setState para poder crear una  nueva tarea
       tasks:[...this.state.tasks, newTask] //estoy diciendo, voy a tomar todo lo que ya teniamos en el estado de las tareas y le voy a agregar algo nuevo, estoy agregando una nueva tarea al arreglo que ya teniamos
